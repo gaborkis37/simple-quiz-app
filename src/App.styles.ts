@@ -87,10 +87,13 @@ export const InputWrapper = styled.div`
 export const Input = styled.input`
   width: 60%;
   margin: 0 10px;
+  border-radius: 20px;
+  border: none;
+  padding: 10px;
 `;
 
 export const LabelWrapper = styled.div`
-  width: 60%;
+  width: 59%;
   text-align: start;
 `;
 
@@ -112,4 +115,66 @@ export const Button = styled.button`
   &:hover {
     background-color: lightgray;
   }
+`;
+
+export const UserListWraper = styled.div`
+  width: 100%;
+  background: #ebfeff;
+  border-radius: 10px;
+  border: 2px solid #0085a3;
+  padding: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const UserListItem = styled.div`
+  display: flex;
+  width: 80%;
+  border: 0.5px solid lightgray;
+  padding: 20px;
+  margin: 5px 0;
+  align-items: center;
+
+  &:nth-child(1) {
+    background-color: lightgrey;
+  }
+
+  :nth-child(even) {
+    background-color: #ebfee8;
+  }
+  border-radius: 30px;
+`;
+
+export const UserNameHeader = styled.div`
+  flex: 1;
+`;
+
+export const LastScoreHeader = styled.div`
+  flex: 2;
+`;
+
+export const AllTimScoreHeader = styled.div`
+  flex: 2;
+`;
+
+export const Username = styled.div`
+  font-weight: 600;
+  font-size: 1rem;
+  flex: 1;
+`;
+
+export const LastScore = styled.div`
+  font-weight: 400;
+  font-size: 16px;
+  flex: 2;
+`;
+
+export const AllTimeScore = styled.div`
+  font-weight: 400;
+  font-size: 16px;
+  flex: 2;
 `;

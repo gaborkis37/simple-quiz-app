@@ -5,6 +5,7 @@ import {
   deleteUserQuestions,
   getQuestionsForUser,
 } from "../../services/QuizService";
+import { addScore } from "../../services/UserService";
 import { AnswerObject } from "../../types/Quiz/AnswerObject";
 import { CheckAnswerResponse } from "../../types/Quiz/CheckAnswerResponse";
 import { Difficulty } from "../../types/Quiz/Difficulty";
@@ -74,8 +75,9 @@ const Quiz: React.FC<QuizProps> = ({
 
     if (nextQuestion === TOTAL_QUESTIONS - 1) {
       await deleteUserQuestions(user?._id);
-      onUserChange(null);
+      await addScore(user?._id, score);
       setGameOver(true);
+      onUserChange(null);
     } else {
       setNumber(nextQuestion);
     }
