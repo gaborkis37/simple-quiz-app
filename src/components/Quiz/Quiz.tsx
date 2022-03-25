@@ -26,6 +26,7 @@ const Quiz: React.FC<QuizProps> = ({
   const [questions, setQuestions] = useState<Questions[]>([]);
   const [score, setScore] = useState(0);
   const [number, setNumber] = useState(0);
+  const [showFinishButton, setShowFinishButton] = useState(false);
 
   const startTrivia = async () => {
     onLoadingChange(true);
@@ -67,13 +68,16 @@ const Quiz: React.FC<QuizProps> = ({
       };
 
       setUserAnswers((prev) => [...prev, answerObject]);
+      if (number + 1 === TOTAL_QUESTIONS) {
+        setShowFinishButton(true);
+      }
     }
   };
 
   const nextQuestion = async () => {
     const nextQuestion = number + 1;
 
-    if (nextQuestion === TOTAL_QUESTIONS - 1) {
+    if (nextQuestion === TOTAL_QUESTIONS) {
       await deleteUserQuestions(user?._id);
       await addScore(user?._id, score);
       setGameOver(true);
@@ -88,7 +92,7 @@ const Quiz: React.FC<QuizProps> = ({
       <GlobalStyle />
       <Wrapper>
         <h1>React quiz</h1>
-        {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+        {gameOver ? (
           <button className="start" onClick={startTrivia}>
             Start
           </button>
@@ -111,6 +115,11 @@ const Quiz: React.FC<QuizProps> = ({
         number !== TOTAL_QUESTIONS - 1 ? (
           <button className="next" onClick={nextQuestion}>
             Next Question
+          </button>
+        ) : null}
+        {showFinishButton ? (
+          <button className="next" onClick={nextQuestion}>
+            Finish quiz
           </button>
         ) : null}
       </Wrapper>
