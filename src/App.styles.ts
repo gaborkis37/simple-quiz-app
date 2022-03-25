@@ -69,3 +69,47 @@ export const Wrapper = styled.div`
     max-width: 200px;
   }
 `;
+
+export const InputWrapper = styled.div`
+  width: 100%;
+  background: #ebfeff;
+  border-radius: 10px;
+  border: 2px solid #0085a3;
+  padding: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Input = styled.input`
+  width: 60%;
+  margin: 0 10px;
+`;
+
+export const LabelWrapper = styled.div`
+  width: 60%;
+  text-align: start;
+`;
+
+export const Label = styled.label`
+  font-weight: 200;
+  font-size: 12px;
+  color: gray;
+`;
+
+export const Button = styled.button`
+  background-color: transparent;
+  color: gray;
+  border: 1px solid gray;
+  border-radius: 1em;
+  padding: 5px 15px;
+  margin-top: 10px;
+  user-select: none;
+  cursor: pointer;
+  &:hover {
+    background-color: lightgray;
+  }
+`;
